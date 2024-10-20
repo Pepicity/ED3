@@ -48,5 +48,6 @@ void config_tmr(){
 	TIM_ConfigMatch(LPC_TIM0, &match_cfg);
 
 	TIM_Cmd(LPC_TIM0, ENABLE);
+	NVIC_EnableIRQ(TIMER0_IRQn);
 
 }
