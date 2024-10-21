@@ -117,9 +117,8 @@ void ADC_IRQHandler(){
 	NVIC_DisableIRQ(ADC_IRQn);
 
 	for(uint32_t i = 0; i < 8; i++){
-		while(ADC_ChannelGetStatus(LPC_ADC, ADC_CHANNEL_7, ADC_DATA_DONE)){
+		while(!(ADC_ChannelGetStatus(LPC_ADC, ADC_CHANNEL_7, ADC_DATA_DONE)))
 		adc_value += ADC_ChannelGetData(LPC_ADC, 7);
-		}
 	}
 
 	adc_value /= 8;
